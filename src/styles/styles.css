@@ -1,17 +1,29 @@
 :root {
+  /* Cores principais */
   --primary-color: #4361ee;
-  --secondary-color: #3f37c9;
+  --primary-dark: #3f37c9;
   --accent-color: #4895ef;
-  --background-color: #f8f9fa;
-  --text-color: #2b2d42;
-  --light-text: #f8f9fa;
   --success-color: #4cc9f0;
   --danger-color: #f72585;
+  --danger-dark: #d1145a;
+  
+  /* Cores neutras */
+  --background-color: #f8f9fa;
+  --text-color: #2b2d42;
+  --text-light: #f8f9fa;
+  --text-muted: #6c757d;
+  --border-color: #e9ecef;
+  
+  /* Efeitos visuais */
   --border-radius: 12px;
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
+  --box-shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/**
+ * RESET E CONFIGURAÇÕES GERAIS
+ */
 * {
   margin: 0;
   padding: 0;
@@ -19,50 +31,62 @@
 }
 
 body {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
-  background: var(--background-color);
+  background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
-  padding: 20px;
-  min-height: 100vh;
+  padding: 2rem;
 }
 
+/**
+ * COMPONENTE CONTAINER
+ */
 .container {
+  width: 100%;
   max-width: 500px;
-  margin: 40px auto;
+  margin: 2.5rem auto;
   background: white;
-  padding: 30px;
+  padding: 2rem;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   transition: var(--transition);
 }
 
 .container:hover {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-hover);
 }
 
+/**
+ * TIPOGRAFIA
+ */
 h1 {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
   color: var(--primary-color);
   font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: -0.5px;
 }
 
+/**
+ * FORMULÁRIO E INPUTS
+ */
 .input-group {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
 }
 
 input {
   flex: 2;
-  padding: 12px 16px;
-  flex-direction: column;
-  font-size: 16px;
-  border: 2px solid #e9ecef;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
   transition: var(--transition);
   outline: none;
@@ -70,44 +94,60 @@ input {
 
 input:focus {
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 5px rgba(72, 149, 239, 0.2);
+  box-shadow: 0 0 0 3px rgba(72, 149, 239, 0.2);
 }
 
+/**
+ * BOTÕES
+ */
 button {
-  padding: 10px 15px;
+  padding: 0.625rem 1rem;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--text-light);
   border: none;
   border-radius: var(--border-radius);
-  font-size: 15px;
-  font-weight: 100;
+  font-size: 0.9375rem;
+  font-weight: 500;
   cursor: pointer;
   transition: var(--transition);
 }
 
 button:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-1px);
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
 button:active {
   transform: translateY(0);
 }
 
+.delete-btn {
+  background-color: var(--danger-color);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.delete-btn:hover {
+  background-color: var(--danger-dark);
+}
+
+/**
+ * LISTA DE ITENS
+ */
 ul {
-  margin-top: 54px;
+  margin-top: 3.375rem;
   list-style: none;
 }
 
 li {
-  padding: 24px 26px;
-  margin-bottom: 18px;
+  padding: 1.5rem 1.625rem;
+  margin-bottom: 1.125rem;
   background: white;
   border-radius: var(--border-radius);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 22px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: var(--transition);
 }
 
@@ -116,27 +156,27 @@ li:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.delete-btn {
-  background-color: var(--danger-color);
-  padding: 6px 12px;
-  font-size: 14px;
-}
-
-.delete-btn:hover {
-  background-color: #d1145a;
-}
-
+/**
+ * ESTADO VAZIO
+ */
 .empty-state {
   text-align: center;
-  color: #6c757d;
-  padding: 20px;
+  color: var(--text-muted);
+  padding: 1.25rem;
   font-style: italic;
 }
 
+/**
+ * RESPONSIVIDADE
+ */
 @media (max-width: 600px) {
+  body {
+    padding: 1.25rem;
+  }
+  
   .container {
-    padding: 20px;
-    margin: 20px auto;
+    padding: 1.25rem;
+    margin: 1.25rem auto;
   }
   
   .input-group {
@@ -145,5 +185,6 @@ li:hover {
   
   button {
     width: 100%;
+    padding: 0.75rem;
   }
 }
