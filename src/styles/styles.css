@@ -1,10 +1,10 @@
 :root {
   /* Cores principais */
-  --primary-color: #4361ee;
+  --primary-color: #2448ea;
   --primary-dark: #3f37c9;
   --accent-color: #4895ef;
   --success-color: #4cc9f0;
-  --danger-color: #f72585;
+  --danger-color: rgb(227, 5, 5);
   --danger-dark: #d1145a;
   
   /* Cores neutras */
@@ -22,7 +22,7 @@
 }
 
 /**
- * RESET E CONFIGURAÇÕES GERAIS
+ RESET E CONFIGURAÇÕES GERAIS
  */
 * {
   margin: 0;
@@ -43,15 +43,15 @@ body {
   padding: 2rem;
 }
 
-/**
- * COMPONENTE CONTAINER
+/*
+  COMPONENTE CONTAINER
  */
 .container {
   width: 100%;
   max-width: 500px;
   margin: 2.5rem auto;
-  background: white;
-  padding: 2rem;
+  background: rgba(206, 206, 206, 0.73);
+  padding: 2.5rem;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   transition: var(--transition);
@@ -61,8 +61,8 @@ body {
   box-shadow: var(--box-shadow-hover);
 }
 
-/**
- * TIPOGRAFIA
+/*
+ TIPOGRAFIA
  */
 h1 {
   text-align: center;
@@ -73,8 +73,8 @@ h1 {
   letter-spacing: -0.5px;
 }
 
-/**
- * FORMULÁRIO E INPUTS
+/*
+  FORMULÁRIO E INPUTS
  */
 .input-group {
   display: flex;
@@ -97,24 +97,24 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(72, 149, 239, 0.2);
 }
 
-/**
- * BOTÕES
+/*
+  BOTÕES
  */
 button {
-  padding: 0.625rem 1rem;
+  padding: 0.225rem 0.9rem;
   background-color: var(--primary-color);
   color: var(--text-light);
   border: none;
   border-radius: var(--border-radius);
-  font-size: 0.9375rem;
-  font-weight: 500;
+  font-size: 0.8375rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: var(--transition);
+  transition: var(--transition 100);
 }
 
 button:hover {
   background-color: var(--primary-dark);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 button:active {
@@ -135,7 +135,7 @@ button:active {
  * LISTA DE ITENS
  */
 ul {
-  margin-top: 3.375rem;
+  margin-top: 4.375rem;
   list-style: none;
 }
 

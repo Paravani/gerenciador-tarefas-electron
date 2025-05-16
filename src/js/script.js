@@ -44,7 +44,7 @@ function checkEmptyList() {
         if (!emptyState) {
             const emptyMsg = document.createElement('p');
             emptyMsg.className = 'empty-state';
-            emptyMsg.textContent = 'Nenhuma tarefa adicionada ainda.';
+            emptyMsg.textContent = 'Nenhuma tarefa foi encontrada.';
             lista.appendChild(emptyMsg);
         }
     } else if (emptyState) {
