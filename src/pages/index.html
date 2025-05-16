@@ -9,20 +9,24 @@
 </head>
 <body>
     <div>
- 
-        <h1>Gerenciador de tarefas</h1>
- 
-        <input type="text" placeholder="Digite uma tarefa" id="input-tarefa">
- 
-        <button class="adicionar" onclick="addTask()">
-            Adicionar
-        </button>
- 
-        <ul id="lista">
- 
-        </ul>
- 
-    </div>
+    <h1>Gerenciador de tarefas</h1>
+
+    <input 
+        type="text" 
+        placeholder="Digite uma tarefa" 
+        id="input-tarefa"
+        onkeypress="if (event.key === 'Enter') addTask()" <!-- Detecta o Enter -->
+    
+
+    <button class="adicionar" onclick="addTask()">
+        Adicionar
+    </button>
+
+    <ul id="lista">
+        <!-- Tarefas serão adicionadas aqui -->
+    </ul>
+</div>
+   
  
 <!-- Arquivo para manipular nosso DOM -->
     <script src="../js/script.js"></script>
